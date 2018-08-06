@@ -57,20 +57,45 @@ var books_list = [
   }
 ];
 
-// remove all records that match {} -- which means remove ALL records
-db.Book.remove({}, function(err, books) {
-  if (err) {
-    console.log("Error occurred in remove", err);
-  } else {
-    console.log("removed all books");
-
-    // create new records based on the array books_list
-    db.Book.create(books_list, function(err, books) {
-      if (err) {
-        return console.log("err", err);
-      }
-      console.log("created", books.length, "books");
-      process.exit();
-    });
+var authors_list = [
+  {
+    name: "Harper Lee",
+    alive: false
+  },
+  {
+    name: "F Scott Fitzgerald",
+    alive: false
+  },
+  {
+    name: "Victor Hugo",
+    alive: false
+  },
+  {
+    name: "Jules Verne",
+    alive: false
+  },
+  {
+    name: "Sheryl Sandberg",
+    alive: true
+  },
+  {
+    name: "Tim Ferriss",
+    alive: true
+  },
+  {
+    name: "John Steinbeck",
+    alive: false
+  },
+  {
+    name: "William Shakespeare",
+    alive: false
   }
-});
+];
+
+db.Author.remove({}, function(err, authors) => {
+  if(err){
+    console.log(err);
+    return;
+  }
+  console.log('created', authors.length, 'authors');  
+})

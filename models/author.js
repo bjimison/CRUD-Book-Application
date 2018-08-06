@@ -1,4 +1,4 @@
-var mongoose = require('mongoose'),
+var mongoose = require("mongoose"),
   Schema = mongoose.Schema;
 
 var AuthorSchema = new Schema({
@@ -7,6 +7,6 @@ var AuthorSchema = new Schema({
   image: String
 });
 
-var Author = mongoose.model('Author', AuthorSchema);
+var Author = mongoose.model("Author", AuthorSchema);
 
 module.exports = Author;
